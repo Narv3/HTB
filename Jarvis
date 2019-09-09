@@ -62,7 +62,9 @@ Use weevely to generate a reverse shell payload that can be uploaded to the webs
 weevely generate r0m /root/Desktop/sys.php - generates the payload > then use that file in the upload
 weevely http://10.10.10.143/sys.php r0m - After the file has been uploaded, use this to access the payload to gain access
 //
-To make things easier, create a reverse shell in /tmp that will allow you to not use the weevely shell that was created. Do note that making changes to files can only be done in the weevely shell but will help you move around as well as try many ways to escape the shell jail. Some of the commands to view what things you can and cannot do need to be done outside of the payload shell. (use a reverse shell and nc to get another shell to work in)
+To make things easier, create a reverse shell in /tmp that will allow you to not use the weevely shell that was created. Do note that making changes to files can only be done in the weevely shell 
+but will help you move around as well as try many ways to escape the shell jail. Some of the commands to view what things you can and cannot do need to be done outside of the payload shell. 
+(Use a reverse shell and nc to get another shell to work in)
 
 Inside a nc reverse shell, user can notice that there is a program that can be run by running 'sudo -l' with sudo permissions
 
@@ -79,7 +81,7 @@ On kali listen to port you set for shell.sh to get reverse into pepper, since pe
 
 sudo -u pepper /var/www/Admin-Utilities/simpler.py -p $(cat /home/pepper/user.txt) > to get the flag from pepper if there are difficulties getting a shell as pepper.
 \\
-After you have a shell as pepper, notice that the shell still is not a full shell. SSH is your friend and creating a bypass for pepper's password can be done by creating ssh keys that will be used to get in
+After you have a shell as pepper, notice that the shell still is not a full shell. SSH is your friend and creating a bypass for pepper's password can be done by creating ssh keys
 >ssh-keygen 
 	move private key to kali
 rename id_rsa.pub to 'authorized_keys'
@@ -87,7 +89,9 @@ rename id_rsa.pub to 'authorized_keys'
 should be able to ssh as pepper 
 
 Section 2:
-Now that ssh as pepper has been achieved, use nc to move over pspy64(process watcher) and or linenum(to check permissons on important things) to get the lay of the land as to what to do next. Also, can just make the files or use 'ps' and find/grep commands to check permissions, but adding scripts will move the process along faster.
+Now that ssh as pepper has been achieved, use nc to move over pspy64(process watcher) and or linenum(to check permissons on important things) to get the lay of the land as to what to do next. 
+Also, you can just make the files or use 'ps' and find/grep commands to check permissions, 
+but adding scripts will move the process along faster.
 
 https://gtfobins.github.io/gtfobins/systemctl/ > this link will help with gaining root
 systemctl: ( will note that pepper can start/make services but the owner of the priv. is root. Will most likely give a root shell if exploitable)

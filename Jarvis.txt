@@ -109,7 +109,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=/usr/bin/env bash /tmp/top.sh
+ExecStart=/usr/bin/env ... wont give you the answer, research is key.
 
 [Install]
 WantedBy=multi-user.target

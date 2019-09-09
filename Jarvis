@@ -1,6 +1,6 @@
 Jarvis:
-# When running scans and injections on the website you will be banned each time you run.
-Helpful links:
+# When running scans and injections on the website you will be banned each time you run if too many requests are made.
+Helpful links off the bat:
 https://medium.com/@happyholic1203/phpmyadmin-4-8-0-4-8-1-remote-code-execution-257bcc146f8e
 https://www.security-sleuth.com/sleuth-blog/2017/1/3/sqlmap-cheat-sheet
 https://medium.com/bugbountywriteup/sqlmaps-os-shell-backdooring-website-with-weevely-8cb6dcf17fa4

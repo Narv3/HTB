@@ -5,7 +5,7 @@ https://medium.com/@happyholic1203/phpmyadmin-4-8-0-4-8-1-remote-code-execution-
 https://www.security-sleuth.com/sleuth-blog/2017/1/3/sqlmap-cheat-sheet
 https://medium.com/bugbountywriteup/sqlmaps-os-shell-backdooring-website-with-weevely-8cb6dcf17fa4
 Tools:
-OWASP-ZAP,dirb,sqlmap,nmap,systemctl,weevely,lots of research
+OWASP-ZAP,dirb,sqlmap,nmap,systemctl,weevely,ssh-keygen, lots of research
 Other:
 Infoblox NetMRI 7.1.4 Shell Escape / Privilege Escalation
 ~exploit/multi/http/phpmyadmin_lfi_rce > reverse shell if you have creds. Creds can be found after using sqlmap, but getting a reverse shell and escaping is a little easier when not in metasploit.

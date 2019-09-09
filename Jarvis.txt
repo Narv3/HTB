@@ -8,7 +8,7 @@ Tools:
 OWASP-ZAP,dirb,sqlmap,nmap,systemctl,weevely,lots of research
 Other:
 Infoblox NetMRI 7.1.4 Shell Escape / Privilege Escalation
-~exploit/multi/http/phpmyadmin_lfi_rce > reverse shell if you have creds. Creds can be found after running sqlmap, but getting a reverse shell and escaping to other users is a little easier when not in metasploit.
+~exploit/multi/http/phpmyadmin_lfi_rce > reverse shell if you have creds. Creds can be found after using sqlmap, but getting a reverse shell and escaping is a little easier when not in metasploit.
 
 
 Host Jarvis: 10.10.10.143
